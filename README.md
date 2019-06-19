@@ -5,7 +5,6 @@
   <li>на Ютубе https://www.youtube.com/watch?v=wkiacQ6nKUs</li>
 </ul>
 
-
 <p>Домашнее задание Повторить код за лектром: </p>
 
 <ul>
@@ -19,6 +18,3 @@
 </li>
   <li>Пройти уроки по Git на ресурсе https://githowto.com/ru</li>
 </ul>
-
-
-
