@@ -1,5 +1,6 @@
 const searchForm = document.querySelector('#search-form');
 const movie = document.querySelector('#movies');
+
 function apiSearch(event){
   event.preventDefault();
   const searchText = document.querySelector('.form-control').value;
@@ -9,20 +10,26 @@ function apiSearch(event){
 searchForm.addEventListener('submit', apiSearch);
 
 function requestApi(url){
+
   const request = new XMLHttpRequest();
   request.open('GET', url);
   request.send();
+
   request.addEventListener('readystatechange', function() {
-    if (request.readyState !== 4) return;
+    if (request.readyState !== 4) {
+      return;
+    }
     if (request.status !== 200) {
       console.log('error: ' + request.status);
       return;
     }
-    const output = JSON.parse(request.responseText)
+    
+    const output = JSON.parse(request.responseText);
     let inner = '';
     output.results.forEach(function (item){
       let nameItem = item.name || item.title;
-      inner += '<div class="col-12 col-md-4 col-x1-3">' + nameItem + '</div>';
+      let dateItem = item.first_air_date || item.release_date;
+      inner += '<div class="col-12 col-md-4 col-x1-3">' + nameItem + '<br>' + 'дата выхода: ' + dateItem + '<br><br>' + '</div>';
       });
     movie.innerHTML = inner;
    });
